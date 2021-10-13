@@ -1,0 +1,7 @@
+<div style="margin: auto">
+    <button (click)='increment()'>+</button>
+    count: {{value$ | async}}
+    <button (click)='decrement()'>-</button>
+    <div>increment click times: {{incrementCount$ | async}}</div>
+    <div>decrement click times: {{decrementCount$ | async}}</div>
+</div>
