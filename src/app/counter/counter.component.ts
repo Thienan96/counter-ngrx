@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { decrement, increment } from './store/counter.actions';
+import { asyncMultiply, decrement, increment, multiply, reset } from './store/counter.actions';
 import { selectDecrementCount, selectIncrementCount, selectValue } from './store/counter.selector';
 
 @Component({
@@ -24,4 +24,19 @@ export class CounterComponent implements OnInit {
     this.store.dispatch(decrement());
   }
 
+  multiply() {
+    const times = Math.floor(Math.random() * 10) + 1;
+    console.log('multiply number: ', times);
+    this.store.dispatch(multiply({ multiplier: times }))
+  }
+
+  asyncmultiply() {
+    const times = Math.floor(Math.random() * 10) + 1;
+    console.log('multiply number: ', times);
+    this.store.dispatch(asyncMultiply({ multiplier: times }))
+  }
+
+  reset() {
+    this.store.dispatch(reset());
+  }
 }
