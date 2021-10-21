@@ -20,8 +20,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        EffectsModule.forRoot([CounterEffects]),
-        StoreModule.forRoot({ counter: counterReducer }),
+        EffectsModule.forFeature([CounterEffects]),
+        StoreModule.forFeature('counter', counterReducer),
     ],
     exports: [CounterComponent]
 })
